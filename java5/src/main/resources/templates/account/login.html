@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 - Bài 2</title>
+</head>
+<body>
+<form th:action="@{/account/login}" method="post">
+    <input name="username">
+    <input name="password">
+    <input type="checkbox" name="remember" value="true">
+    <button>Login</button>
+</form>
+</body>
+</html>

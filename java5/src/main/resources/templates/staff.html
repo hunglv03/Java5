@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buổi 5</title>
+</head>
+<body>
+<div align="center">
+    <form th:action="@{/staff/save}" method="post" th:object="${staff}">
+        <input type="text" th:field="*{id}"/><br><br>
+        <input type="text" th:field="*{fullName}"/><br><br>
+        <input type="text" th:field="*{email}"/><br><br>
+        <input type="radio" th:field="*{gender}" th:value="true" th:text="Male"/>
+        <input type="radio" th:field="*{gender}" th:value="false" th:text="Female"/><br><br>
+        <select th:field="*{position}">
+            <option th:value="CEO">CEO</option>
+            <option th:value="DIR">DIR</option>
+            <option th:value="MAN">MAN</option>
+            <option th:value="EMP">EMP</option>
+        </select><br><br>
+        <button>Save</button>
+    </form>
+</div>
+</body>
+</html>

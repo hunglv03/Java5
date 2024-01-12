@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3 - Bài 1</title>
+</head>
+<body>
+<div align="center">
+    <form th:action="@{/student/save}" th:object="${sv}" method="post">
+        <p>Name:
+            <input type="text" th:field="*{name}" path="name" th:class="${#fields.hasErrors('name')}? fieldError"/>
+        </p><br>
+        <p th:text="${mesage}"></p>
+        <p>Giới Tính:
+            <input type="radio" path="gender" th:field="*{gender}" th:each="gioiTinh : ${genders}"
+                   th:value="${gioiTinh.key}" th:text="${gioiTinh}"
+                   th:checked="${sv.gender == gioiTinh.key}"/>
+        </p><br>
+        <p th:text="${mesage}"></p>
+        <p>Sở Thích:
+            <select path="hobbies" th:field="*{hobbies}">
+                <option th:each="soThich : ${hobbies}" th:value="${soThich}" th:text="${soThich}"></option>
+            </select>
+        </p>
+        <br>
+        <p th:text="${mesage}"></p>
+        <button>Save</button>
+    </form><br>
+</div>
+</body>
+</html>
