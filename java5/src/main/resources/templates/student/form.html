@@ -6,26 +6,30 @@
 </head>
 <body>
 <div align="center">
+    <h1 th:text="${message}" style="color: red"></h1>
     <form th:action="@{/student/save}" th:object="${sv}" method="post">
         <p>Name:
-            <input type="text" th:field="*{name}" path="name" th:class="${#fields.hasErrors('name')}? fieldError"/>
+            <input type="text" th:field="*{name}" path="name"/>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error" style="color: red"></div>
         </p><br>
-        <p th:text="${mesage}"></p>
         <p>Giới Tính:
             <input type="radio" path="gender" th:field="*{gender}" th:each="gioiTinh : ${genders}"
                    th:value="${gioiTinh.key}" th:text="${gioiTinh}"
                    th:checked="${sv.gender == gioiTinh.key}"/>
+        <div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="error" style="color: red"></div>
         </p><br>
         <p th:text="${mesage}"></p>
         <p>Sở Thích:
             <select path="hobbies" th:field="*{hobbies}">
+                <option value="">-- Chọn sở thích --</option>
                 <option th:each="soThich : ${hobbies}" th:value="${soThich}" th:text="${soThich}"></option>
             </select>
+        <div th:if="${#fields.hasErrors('hobbies')}" th:errors="*{hobbies}" class="error" style="color: red"></div>
         </p>
         <br>
-        <p th:text="${mesage}"></p>
         <button>Save</button>
-    </form><br>
+    </form>
+    <br>
 </div>
 </body>
 </html>

@@ -1,13 +1,13 @@
 package com.example.java5.controller;
 
 import com.example.java5.model.Staff;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Locale;
 
 @Controller
 public class StaffController {
@@ -24,8 +24,7 @@ public class StaffController {
     }
 
     @PostMapping("/staff/save")
-    public String save(@ModelAttribute("staff") Staff staff) {
-        staff.setFullName(staff.getFullName().toUpperCase(Locale.ROOT));
+    public String save(@Valid @ModelAttribute("staff") Staff staff) {
         return "detailStaff";
     }
 }
