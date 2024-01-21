@@ -1,16 +1,15 @@
 package com.example.java5.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Item {
-	Integer id;
-	String name;
-	double price;
-	int qty = 1;
+    Integer id;
+    String name;
+    double price;
+    int qty = 1;
 
 }

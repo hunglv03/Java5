@@ -1,4 +1,4 @@
-package com.example.java5.controller;
+package com.example.java5.controller.lab2;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

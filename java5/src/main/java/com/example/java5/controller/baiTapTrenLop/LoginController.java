@@ -1,4 +1,4 @@
-package com.example.java5.controller;
+package com.example.java5.controller.baiTapTrenLop;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

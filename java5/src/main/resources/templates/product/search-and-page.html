@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab6 - Search and Page</title>
+</head>
+<body>
+<h3>SEARCH AND PAGE</h3>
+<form action="/product/search-and-page" method="post">
+    <input name="keywords" th:value="${keywords}">
+    <button>Search</button>
+</form>
+<table border="1" style="width:100%">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${page.content}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.createDate}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/product/search-and-page?p=0}">First</a>
+<a th:href="@{'/product/search-and-page?p='+${page.number-1}}">Previous</a>
+<a th:href="@{'/product/search-and-page?p='+${page.number+1}}">Next</a>
+<a th:href="@{'/product/search-and-page?p='+${page.totalPages-1}}">Last</a>
+<ul>
+    <li th:text="'Số thực thể hiện tại: '+${page.numberOfElements}"></li>
+    <li th:text="'Trang số: '+${page.number}"></li>
+    <li th:text="'Kích thước trang: '+${page.size}"></li>
+    <li th:text="'Tổng số thực thể: '+${page.totalElements}"></li>
+    <li th:text="'Tổng số trang: '+${page.totalPages}"></li>
+</ul>
+</body>
+</html>

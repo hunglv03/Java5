@@ -1,4 +1,4 @@
-package com.example.java5.controller;
+package com.example.java5.controller.lab3;
 
 import com.example.java5.model.Student;
 import jakarta.validation.Valid;

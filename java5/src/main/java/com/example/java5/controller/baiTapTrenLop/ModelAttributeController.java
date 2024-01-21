@@ -1,4 +1,4 @@
-package com.example.java5.controller;
+package com.example.java5.controller.baiTapTrenLop;
 
 import com.example.java5.model.Comment;
 import org.springframework.stereotype.Controller;

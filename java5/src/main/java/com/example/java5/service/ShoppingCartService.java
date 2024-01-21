@@ -29,7 +29,7 @@ public interface ShoppingCartService {
 	 * @param qty số lượng mới
 	 * @return mặt hàng đã được thay đổi số lượng
 	 */
-	Item update(Integer id, int qty);
+	Item update(Integer id, String qty);
 
 	/**
 	 * Xóa sạch các mặt hàng trong giỏ
