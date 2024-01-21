@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab4</title>
+</head>
+<body>
+<table border="1" style="width:100%">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+        <th>Remove</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${cart.items}">
+        <form th:action="@{/cart/update/${item.id}}" method="post">
+            <td><input type="hidden" name="id" th:value="${item.id}"></td>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.price}"></td>
+            <td><input name="qty" th:value="${item.qty}" onblur="this.form.submit()" style="width:50px;"></td>
+            <td th:text="${item.price * item.qty}"></td>
+            <td>
+                <a th:href="@{'/cart/remove/'+${item.id}}">Remove</a>
+            </td>
+            <th>
+                <button><a th:href="@{/cart/clear}">Clear Cart</a></button>
+                <button><a th:href="@{/item/index}">Add more</a></button>
+                <button><a th:href="@{'/cart/add/'+ ${item.id}}">Add To Cart</a></button>
+                <form th:action="@{'/cart/update/'+${item.id}}" method="post">
+                    <button><a th:href="@{'/cart/remove/'+${item.id}}">Remove</a></button>
+                    <button><a th:href="@{/cart/clear}">Clear Cart</a></button>
+                </form>
+            </th>
+        </form>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

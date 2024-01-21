@@ -1,4 +1,4 @@
-package com.example.java5.controller;
+package com.example.java5.controller.baiTapTrenLop;
 
 import com.example.java5.model.Staff;
 import jakarta.validation.Valid;

@@ -1,4 +1,4 @@
-package com.example.java5.controller;
+package com.example.java5.controller.lab2;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
