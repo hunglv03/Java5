@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+<form action="/admin/create" th:object="${categoryItem}" method="post" class="me-auto ms-auto w-50 mt-3 row">
+    <h1 class="text-primary-emphasis text-center mb-5">Category Management</h1>
+    <th:block th:if="${not #strings.isEmpty(success_category)}">
+        <div class="alert alert-success" role="alert" th:text="${success_category}"></div>
+    </th:block>
+    <div class="mb-3">
+        <input th:field="*{id}" type="text" placeholder="Category Id" class="form-control"/>
+        <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="form-text text-danger"></p>
+        <p th:if="${not #strings.isEmpty(error_category)}" class="form-text text-danger" th:text="${error_category}"></p>
+    </div>
+    <div class="mb-3">
+        <input th:field="*{name}" type="text" placeholder="Category Name" class="form-control"/>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="form-text text-danger"></p>
+    </div>
+    <div>
+        <div class="float-end">
+            <button th:formaction="@{/admin/create}" type="submit" class="btn btn-primary">Create</button>
+            <button th:formaction="@{/admin/update}" type="submit" class="btn btn-secondary">Update</button>
+            <button th:formaction="@{/admin/delete}" type="submit" class="btn btn-danger">Delete</button>
+            <button th:formaction="@{/admin/index}" type="submit" class="btn btn-warning">Reset</button>
+            <a th:href="@{/account/index}" class="btn btn-secondary">Account</a>
+            <button th:formaction="@{/logout}" type="submit" class="btn btn-danger">Logout</button>
+        </div>
+    </div>
+</form>
+<table class="table table-light table-hover me-auto ms-auto w-50 mt-3 text-center">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ca : ${categoryItems}">
+        <td th:text="${ca.id}"></td>
+        <td th:text="${ca.name}"></td>
+        <td>
+            <a th:href="@{/admin/edit(id=${ca.id})}"><i class="bi bi-pencil text-success me-2"></i></a>
+            <a th:href="@{/admin/delete(id=${ca.id})}"><i class="bi bi-trash3 text-danger"></i></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

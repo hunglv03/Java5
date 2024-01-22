@@ -4,14 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,8 +22,8 @@ public class Account implements Serializable {
     String fullname;
     String email;
     String photo;
-    boolean activated;
-    boolean admin;
+    Boolean activated;
+    Boolean admin;
     @OneToMany(mappedBy = "account")
     List<Order> orders;
 }

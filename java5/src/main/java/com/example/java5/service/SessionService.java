@@ -19,6 +19,13 @@ public class SessionService {
         return (T) session.getAttribute(name);
     }
 
+    public <T> T get2(String name) {
+        if (session.getAttribute(name) != null)
+            return (T) session.getAttribute(name);
+        else
+            return null;
+    }
+
     /**
      * Thay đổi hoặc tạo mới attribute trong session
      *
