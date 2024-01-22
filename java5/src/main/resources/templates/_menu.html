@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<nav>
+    <hr>
+    <a href="/home/index" th:text="#{lo.mn.home}"></a> ::
+    <a href="/home/about" th:text="#{lo.mn.about}"></a> ||||
+    <a href="?lang=vi">Tiếng việt</a> ::
+    <a href="?lang=en">English</a>
+    <hr>
+</nav>
+<script>
+    $(document).ready(function () {
+        $("a[href*=lang]").on("click", function () {
+            var param = $(this).attr("href");
+            $.ajax({
+                url: "/home/index" + param,
+                success: function () {
+                    location.reload();
+                }
+            });
+            return false;
+        })
+    })
+</script>
+</body>
+</html>
