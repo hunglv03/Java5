@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<!--<tiles:insertAttribute name="header"/>-->
+<!--<tiles:insertAttribute name="menu"/>-->
+<!--<table style="width:100%" border="1">-->
+<!--    <tr>-->
+<!--        <td valign="top">-->
+<!--            <tiles:insertAttribute name="body"/>-->
+<!--        </td>-->
+<!--        <td width="250">-->
+<!--            <tiles:insertAttribute name="aside"/>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<tiles:insertAttribute name="footer"/>-->
+<!-------------------------------------------------------------------------Sử dụng thymeleaft-->
+<!-- Thay thế "header" -->
+<div th:replace="_header :: body"></div>
+<!-- Thay thế "menu" -->
+<div th:replace="_menu :: body"></div>
+<!-- Bảng chứa "body" và "aside" -->
+<table style="width:100%" border="1">
+    <tr>
+        <td valign="top">
+            <!-- Thay thế "body" -->
+            <div th:replace="_body :: body"></div>
+        </td>
+        <td width="250">
+            <!-- Thay thế "aside" -->
+            <div th:replace="_aside :: body"></div>
+        </td>
+    </tr>
+</table>
+<!-- Thay thế "footer" -->
+<div th:replace="_footer :: body"></div>
+</body>
+</html>
