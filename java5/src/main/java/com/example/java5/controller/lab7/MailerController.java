@@ -56,6 +56,7 @@ public class MailerController {
                     try {
                         String uploadDir = System.getProperty("user.dir") + "/uploads/";
                         Path uploadPath = Paths.get(uploadDir);
+                        System.out.println("hùnggfgfgfgf");
                         if (!Files.exists(uploadPath)) {
                             Files.createDirectories(uploadPath);
                         }
