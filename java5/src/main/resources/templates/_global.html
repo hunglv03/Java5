@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Global</title>
+</head>
+<body>
+<div th:fragment="content">
+    <b th:text="${uri}"></b>
+    <ul class="list-group mt-3">
+        <li th:each="item : ${categories}" class="list-group-item" th:text="${item.name}"></li>
+    </ul>
+</div>
+</body>
+</html>

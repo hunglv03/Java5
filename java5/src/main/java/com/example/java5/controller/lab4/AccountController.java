@@ -17,12 +17,12 @@ public class AccountController {
     @Autowired
     SessionService sessionService;
 
-    @GetMapping("/account/login")
+    @GetMapping("/account4/login")
     public String login1() {
         return "account/login";
     }
 
-    @PostMapping("/account/login")
+    @PostMapping("/account4/login")
     public String login2() {
         String un = paramService.getString("username", "");
         String pw = paramService.getString("password", "");
